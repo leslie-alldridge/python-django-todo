@@ -1,1 +1,12 @@
+{% include 'partials/header.html' %}
+<a href ='/todos'>Go back</a>
 <h1>{{todo.title}}</h1>
+<p>{{todo.text}} -- <a href="/todos/delete/{{todo.id}}">Delete</a>"}</p>
+<form action="{% url 'delete/1' %}" method="POST">
+        <input type ="number" name="id" id="id" value="{{todo.id}}"/>
+    <input type="submit" value="Delete" />
+</form>
+<br/>
+Created on {{todo.created_at}}
+
+{% include 'partials/footer.html' %}

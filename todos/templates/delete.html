@@ -1,0 +1,14 @@
+{% include 'partials/header.html' %}
+
+<p>Delete a todo</p>
+
+<form action="{% url 'delete' %}" method="POST">
+        <input type ="number" name="title" id="title"/>
+    <input type="submit" value="Submit" />
+</form>
+
+
+<br/>
+<a href="/">Go Back</a>
+
+{% include 'partials/footer.html' %}
