@@ -36,3 +36,19 @@ def delete(request, id):
         return redirect('/todos')
     else: 
         return render(request, 'add.html')
+
+def update(request, id):
+    if(request.method == 'POST'):
+        title = request.POST['title']
+        text = request.POST['text']
+
+        todo = Todo.objects.get(id=id)
+        todo.title = title
+        todo.text = text
+        todo.save()
+
+        return redirect('/todos')
+    else: 
+        todo = Todo.objects.get(id=id)
+        context = {'todo': todo}
+        return render(request, 'update.html', context)
